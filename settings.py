@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for kaishi project
+# Scrapy settings for secondEdtionXiachufang project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,16 +9,15 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'kaishi'
+BOT_NAME = 'secondEdtionXiachufang'
 
-SPIDER_MODULES = ['kaishi.spiders']
-NEWSPIDER_MODULE = 'kaishi.spiders'
+SPIDER_MODULES = ['secondEdtionXiachufang.spiders']
+NEWSPIDER_MODULE = 'secondEdtionXiachufang.spiders'
+DOWNLOAD_DELAY=3.5
+COOKIES_ENABLES=False
 
-LOG_FILE='log.txt'
-DOWNLOAD_DELAY=1.5
-COOKIES_ENABLED=False
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'kaishi (+http://www.yourdomain.com)'
+#USER_AGENT = 'secondEdtionXiachufang (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -49,14 +48,16 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'kaishi.middlewares.MyCustomSpiderMiddleware': 543,
+#    'secondEdtionXiachufang.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'kaishi.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware':None,
+    #'secondEdtionXiachufang.middlewares.MyCustomDownloaderMiddleware': 543
+    'secondEdtionXiachufang.middleware.RotateUserAgentMiddleware':400,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -67,7 +68,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'kaishi.pipelines.SomePipeline': 300,
+#    'secondEdtionXiachufang.pipelines.SomePipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
